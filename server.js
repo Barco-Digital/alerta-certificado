@@ -2,8 +2,8 @@ var express = require('express');
 var app = express();
 
 app.get('/', function (req, res) {
-  let ou = req.headers.dn.split(':');
-  res.send(ou);
+  console.log("Request: ", req.headers)
+  res.end({ result: req.headers });
 });
 
 app.listen(3333, function () {
