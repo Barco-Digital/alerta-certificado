@@ -6,7 +6,7 @@ const PORT = process.env.APP_PORT || 4433;
 const options = {
   key: fs.readFileSync(process.env.CERT_KEY, 'utf8'),
   cert: fs.readFileSync(process.env.CERT_FILE, 'utf8'),
-  // ca: fs.readFileSync('config/ca.ca'),
+  ca: process.env.CERT_CA ? fs.readFileSync(process.env.CERT_CA, 'utf8') : null,
   requestCert: true,
   rejectUnauthorized: false,
   isServer: true
